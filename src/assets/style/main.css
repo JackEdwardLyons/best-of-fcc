@@ -1,0 +1,584 @@
+/**
+ *	Author: Jack Lyons
+ *	Author URI: http://jacklyons.me
+ *	Version: 1.0
+**/
+
+/*
+	-- body
+	-- Typography
+	-- Section
+	-- Badge
+	-- Button
+	-- Navbar
+	-- Banner
+	-- Footer
+	-- Mobile Media
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+/* body */
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	overflow-x: hidden;
+	font-size: 14px;
+}
+
+/* Typography */
+
+h1,
+h4,
+h6 {
+	color: #3f345f;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+h4 {
+	font-size: 30px;
+}
+
+h6 {
+	font-size: 18px;
+}
+
+p {
+	color: #7d8b9b;
+	font-size: 14px;
+	line-height: 27px;
+}
+
+a {
+	text-decoration: none !important;
+	color: #3f345f;
+	transition: all 0.3s ease 0s;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none !important;
+	color: #28223D;
+}
+
+img {
+	transform-style: preserve-3d;
+}
+
+/* Section */
+
+section {
+	padding: 80px 0;
+}
+
+/* Badge */
+
+.badge {
+	border-radius: 100px;
+	font-size: 12px;
+	font-stretch: normal;
+	font-style: normal;
+	font-weight: 500;
+	letter-spacing: 1px;
+	line-height: normal;
+	padding: 4px 14px;
+	text-transform: uppercase;
+}
+
+.badge-info {
+	background-color: rgba(23, 160, 184, 0.17);
+	color: #17a2b8;
+}
+
+/* Button */
+
+.btn {
+	border-radius: 100px;
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding: 17px 39px;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.14);
+	text-transform: uppercase;
+	box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-success {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#05ac50+0,21dd72+50,05c44e+51,05ac50+71,05ac50+100 */
+	background: #05ac50;
+	/* Old browsers */
+	background: -moz-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #05ac50 0%, #21dd72 50%, #05c44e 51%, #05ac50 71%, #05ac50 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05ac50', endColorstr='#05ac50', GradientType=1);
+	/* IE6-9 fallback on horizontal gradient */
+	background-size: 400% 400%;
+	-webkit-animation: AnimationName 3s ease infinite;
+	-moz-animation: AnimationName 3s ease infinite;
+	animation: AnimationName 3s ease infinite;
+	-webkit-animation: AnimationName 3s ease infinite;
+	-moz-animation: AnimationName 3s ease infinite;
+	animation: AnimationName 3s ease infinite;
+	border: medium none;
+}
+
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 0% 31%
+	}
+	50% {
+		background-position: 100% 70%
+	}
+	100% {
+		background-position: 0% 31%
+	}
+}
+
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 0% 31%
+	}
+	50% {
+		background-position: 100% 70%
+	}
+	100% {
+		background-position: 0% 31%
+	}
+}
+
+@keyframes AnimationName {
+	0% {
+		background-position: 0% 31%
+	}
+	50% {
+		background-position: 100% 70%
+	}
+	100% {
+		background-position: 0% 31%
+	}
+}
+
+.btn-sm {
+	font-size: 12px;
+	padding: 11px 25px;
+}
+
+.custom-card {
+	background-color: #ffffff;
+	overflow: hidden;
+	border: medium none;
+	border-radius: 6px;
+	box-shadow: -1px 92px 99px -62px rgba(0, 0, 0, 0.12), 0 25px 65px 0 rgba(0, 0, 0, 0.08);
+}
+
+.text-primary {
+	color: #5c5de8 !important;
+	text-decoration: none !important;
+}
+
+/* Particles */
+
+/* Navbar */
+
+.fcc-navbar {
+	padding: 18px 0;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.fcc-navbar .nav-link {
+	font-size: 14px;
+	padding: 10px 12px !important;
+	position: relative;
+	color: #fff !important;
+}
+
+.fcc-navbar .nav-link:hover::before {
+	background: #fff none repeat scroll 0 0;
+	border-radius: 22px;
+	bottom: -6px;
+	content: "";
+	height: 10px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	text-align: center;
+	width: 10px;
+}
+
+.menu-btn {
+	background-color: #ffffff;
+	border: medium none;
+	border-radius: 100px;
+	box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+	color: #3f345f;
+	font-size: 13px;
+	font-stretch: normal;
+	font-style: normal;
+	letter-spacing: 1px;
+	letter-spacing: normal;
+	line-height: 41px;
+	margin: 0 0 0 16px;
+	padding: 13px 25px;
+	text-align: left;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* Banner */
+
+.main-container {
+	position: relative;
+	z-index: 3;
+}
+
+.banner-block {
+	max-height: 80vh;
+}
+
+.effectiv {
+	bottom: -1px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: -1;
+}
+
+.effectiv img {
+	max-width: 100%;
+	min-width: 100%;
+	width: 100%;
+}
+
+.bg-primary::after {
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-image: url("../img/bg-primary.png");
+	background-origin: padding-box;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	bottom: 0;
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: -1;
+	opacity: 0.2;
+}
+
+.bg-primary {
+	background: #006400;
+	/* Old browsers */
+	background: -moz-linear-gradient(135deg, #006400 0%, #169f3a 100%);
+	/* FF3.6-15 */
+	background: -webkit-linear-gradient(135deg, #006400 0%, #169f3a 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #006400 0%, #169f3a 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006400', endColorstr='#169f3a', GradientType=1);
+	/* IE6-9 fallback on horizontal gradient */
+}
+
+/* Testimonials */
+
+/* Screens */
+
+/* Features */
+
+.features-block {
+	background: rgba(0, 0, 0, 0) url("../img/path-2-copy-2.png") no-repeat scroll center center;
+}
+
+/* Sign Up */
+
+/* Why Us */
+
+/* Video */
+
+/* Pricing */
+
+.pricing-item .list-group-item {
+	border-color: rgba(204, 204, 204, 0.24);
+	color: #7d8b9b;
+	font-size: 14px;
+	padding: 19px 33px;
+	text-align: left;
+}
+
+.pricing-item .card-body {
+	padding: 43px 30px;
+}
+
+.pricing-item .list-group-item i {
+	margin: 0 9px 0 0;
+}
+
+/* Team */
+
+.social-icons a {
+	border-radius: 50px;
+	box-shadow: 2px 2px 5px rgba(91, 94, 222, 0.16);
+	color: #3f345f;
+	display: inline-block;
+	height: 40px;
+	line-height: 42px;
+	width: 40px;
+}
+
+/* Blogs */
+
+/* Trial */
+
+/* Help */
+
+/* Sidebar */
+
+/* Inner Nav/Header */
+
+/* Blog Page */
+
+/* Footer */
+
+footer {
+	background-color: #fbfcfd;
+	padding: 39px 0;
+}
+
+footer p:last-child {
+	color: #3f345f;
+	font-size: 12px;
+}
+
+footer p:last-child a {
+	color: #3f345f !important;
+	font-weight: 600;
+}
+
+.heart-icon {
+	animation: 2.5s ease 0s normal none infinite running animateHeart;
+	color: #e00404;
+	font-size: 12px;
+	margin: 0 5px;
+}
+
+@keyframes animateHeart {
+	0% {
+		transform: scale(1);
+	}
+	5% {
+		transform: scale(1.2);
+	}
+	10% {
+		transform: scale(1.1);
+	}
+	15% {
+		transform: scale(1.25);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes animateHeart {
+	0% {
+		transform: scale(1);
+	}
+	5% {
+		transform: scale(1.2);
+	}
+	10% {
+		transform: scale(1.1);
+	}
+	15% {
+		transform: scale(1.25);
+	}
+	50% {
+		transform: scale(1);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* Mobile Media */
+
+@media (min-width: 0px) and (max-width: 767px) {
+	h1 {
+		font-size: 42px;
+	}
+	p {
+		font-size: 13px;
+		line-height: 22px;
+	}
+	.custom-card {
+		margin-bottom: 15px;
+		height: auto !important;
+	}
+	section {
+		padding: 60px 0;
+	}
+	.btn {
+		padding: 14px 31px;
+	}
+	.pricing-item .card-body {
+		padding: 33px 10px;
+	}
+	.pricing-item .list-group-item {
+		font-size: 13px;
+		padding: 13px 14px;
+	}
+	.container {
+		max-width: 100%;
+	}
+	.fcc-navbar {
+		padding: 15px;
+	}
+	.navbar-brand {
+		padding: 0;
+	}
+	.fcc-navbar .nav-link {
+		background: rgba(255, 255, 255, 0.11) none repeat scroll 0 0;
+		border-radius: 2px;
+		margin-bottom: 1px;
+		text-align: center;
+	}
+	.menu-btn {
+		display: inline-block;
+		font-size: 12px;
+		margin: 0 0 0 1em;
+		padding: 0 10px;
+		text-align: center;
+		width: 100%;
+	}
+	.nav-item {
+		position: relative;
+		top: 10px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	h1 {
+		font-size: 42px;
+	}
+	p {
+		font-size: 13px;
+		line-height: 22px;
+	}
+	section {
+		padding: 100px 0;
+	}
+	.btn {
+		padding: 14px 31px;
+	}
+	.pricing-item .card-body {
+		padding: 33px 10px;
+	}
+	.pricing-item .list-group-item {
+		font-size: 13px;
+		padding: 13px 14px;
+	}
+	.container {
+		max-width: 100%;
+	}
+	.fcc-navbar {
+		padding: 15px;
+	}
+	.navbar-brand {
+		padding: 0;
+	}
+	.fcc-navbar .nav-link {
+		background: rgba(255, 255, 255, 0.11) none repeat scroll 0 0;
+		border-radius: 2px;
+		margin-bottom: 1px;
+		text-align: center;
+	}
+	.menu-btn {
+		display: inline-block;
+		font-size: 12px;
+		margin: 20px 0 0;
+		padding: 11px 21px;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+	.container {
+		max-width: 100%;
+	}
+	.fcc-navbar .nav-link {
+		font-size: 13px !important;
+		padding: 10px 7px !important;
+	}
+	.menu-btn {
+		font-size: 12px;
+		padding: 11px 21px;
+	}
+}
+
+/* End Mobile Media */
+
+.vote-add {
+	transition: .3s ease;
+	opacity: 0;
+}
+
+.item-meta__likes:hover * {
+	cursor: pointer;
+	opacity: 1;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.pull-right {
+	float: right;
+}
+
+.fa-thumbs-up {
+	padding: 10px;
+	border: 1px solid #e7e7e7;
+	border-radius: 50%;
+}
+.fa-thumbs-up:hover {
+	transition: .3s ease;
+	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.sm-50 {
+	font-size: 50%;
+}
+
+.c-pointer {
+	cursor: pointer;
+}
+
+/* Card media queries */
+
+@media screen and (max-width: 600px) {
+	.ml-1-xs {
+		margin-left: 1em;
+	}
+	.mt-1-xs {
+		margin-top: 1em;
+	}
+	.mt-2-xs {
+		margin-top: 2em;
+	}
+	.pull-right-xs {
+		float: right;
+	}
+	.mb-1-xs {
+		margin-bottom: 1em;
+	}
+}
