@@ -303,7 +303,7 @@ section {
 
 /* Pricing */
 
-.pricing-item .list-group-item {
+.project-item .list-group-item {
 	border-color: rgba(204, 204, 204, 0.24);
 	color: #7d8b9b;
 	font-size: 14px;
@@ -311,11 +311,7 @@ section {
 	text-align: left;
 }
 
-.pricing-item .card-body {
-	padding: 43px 30px;
-}
-
-.pricing-item .list-group-item i {
+.project-item .list-group-item i {
 	margin: 0 9px 0 0;
 }
 
@@ -415,8 +411,11 @@ footer p:last-child a {
 	h1 {
 		font-size: 42px;
 	}
+	h4 {
+		font-size: 24px;
+	}
 	p {
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 22px;
 	}
 	.custom-card {
@@ -429,10 +428,10 @@ footer p:last-child a {
 	.btn {
 		padding: 14px 31px;
 	}
-	.pricing-item .card-body {
+	.project-item .card-body {
 		padding: 33px 10px;
 	}
-	.pricing-item .list-group-item {
+	.project-item .list-group-item {
 		font-size: 13px;
 		padding: 13px 14px;
 	}
@@ -479,10 +478,10 @@ footer p:last-child a {
 	.btn {
 		padding: 14px 31px;
 	}
-	.pricing-item .card-body {
-		padding: 33px 10px;
+	.project-item .card-body {
+		padding: 2em .75em;
 	}
-	.pricing-item .list-group-item {
+	.project-item .list-group-item {
 		font-size: 13px;
 		padding: 13px 14px;
 	}
@@ -550,9 +549,14 @@ footer p:last-child a {
 	border: 1px solid #e7e7e7;
 	border-radius: 50%;
 }
+
 .fa-thumbs-up:hover {
 	transition: .3s ease;
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.sm-60 {
+	font-size: 60%;
 }
 
 .sm-50 {
@@ -580,5 +584,8 @@ footer p:last-child a {
 	}
 	.mb-1-xs {
 		margin-bottom: 1em;
+	}
+	.font-xs-60 {
+		font-size: 60%;
 	}
 }
