@@ -9,12 +9,11 @@
         <div class="">
           <ul class="d-flex ml-auto" style="list-style: none;">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#page-top">About</a>
+              <a class="nav-link js-scroll-trigger" href="#" @click="showModal('about-modal')">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#features">Add Project</a>
+              <a class="nav-link js-scroll-trigger" href="#" @click="showModal('add-project-modal')">Add Project</a>
             </li>
-
             <li class="nav-item">
               <a class="js-scroll-trigger menu-btn btn-sm" href="#trial">Log Out</a>
             </li>
@@ -33,11 +32,25 @@
     </section>
     <!-- Curvy base of the page -->
     <div class="effectiv"><img alt="" class="svg" src="../assets/img/bg.svg"></div>
+    <!-- About Modal -->
+    <about-modal />
+    <!-- Add New Project Modal -->
+    <add-project-modal />
   </header>
 </template>
 
 <script>
+import AboutModal from './AboutModal'
+import AddProjectModal from './AddProjectModal.vue'
 export default {
-
+  components: {
+    AboutModal,
+    AddProjectModal
+  },
+  methods: {
+    showModal (modalName) {
+      this.$modal.show(modalName)
+    }
+  }
 }
 </script>
