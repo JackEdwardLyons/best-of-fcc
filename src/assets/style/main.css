@@ -423,7 +423,7 @@ footer p:last-child a {
 		height: auto !important;
 	}
 	section {
-		padding: 60px 0;
+		padding: 30px 0;
 	}
 	.btn {
 		padding: 14px 31px;
@@ -443,6 +443,9 @@ footer p:last-child a {
 	}
 	.navbar-brand {
 		padding: 0;
+	}
+	.navbar-brand img {
+		width: 150px;
 	}
 	.fcc-navbar .nav-link {
 		background: rgba(255, 255, 255, 0.11) none repeat scroll 0 0;
@@ -499,14 +502,6 @@ footer p:last-child a {
 		border-radius: 2px;
 		margin-bottom: 1px;
 		text-align: center;
-	}
-	.menu-btn {
-		display: inline-block;
-		font-size: 12px;
-		margin: 20px 0 0;
-		padding: 11px 21px;
-		text-align: center;
-		width: 100%;
 	}
 }
 

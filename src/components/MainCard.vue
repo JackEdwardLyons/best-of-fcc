@@ -16,7 +16,7 @@
                                             <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                                             <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                                                 <option selected>
-                                                    Catgory
+                                                    Category
                                                 </option>
                                                 <option value="1">
                                                     Front End Only

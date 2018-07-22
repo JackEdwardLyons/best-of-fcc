@@ -8,7 +8,7 @@ import './assets/style/bootstrap.min.css'
 import './assets/style/fontawesome-all.css'
 import './assets/style/main.css'
 
-Vue.use(vmodal)
+Vue.use(vmodal, { dynamic: true })
 Vue.config.productionTip = false
 
 new Vue({

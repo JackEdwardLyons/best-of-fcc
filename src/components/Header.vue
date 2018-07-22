@@ -25,7 +25,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
-              <h1 class="text-white">Best of <strong>FreeCodeCamp</strong></h1>
+              <h1 class="text-white">Best of <strong>Free Code Camp</strong></h1>
             </div>
           </div>
         </div>

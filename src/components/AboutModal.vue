@@ -1,5 +1,5 @@
 <template>
-    <modal name="about-modal" adaptive="true">
+    <modal name="about-modal" :adaptive="true" :scrollable="true" :height="'auto'" :width="'80%'">
       <p class="text-center">
         About this app
       </p>
