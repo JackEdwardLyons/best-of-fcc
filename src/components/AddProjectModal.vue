@@ -31,13 +31,13 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="projectTags">Tags</label>
-                    <tags-input 
+                    <tags-input
                         :limit="3"
                         v-model="selectedTags"
                         class="project-tags-input"
                         element-id="projectTags"
                         :typeahead-activation-threshold="2"
-                        :typeahead="true" 
+                        :typeahead="true"
                         :existing-tags="{
                             'php': 'PHP',
                             'vue': 'Vue.js',
