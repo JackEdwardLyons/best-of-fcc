@@ -5,20 +5,17 @@
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <img width="200" src="https://d33wubrfki0l68.cloudfront.net/4caa71c705cde0b749c14919b776d3aeb86701dd/458cf/img/freecodecamp.svg" />
         </a>
-
-        <div class="">
-          <ul class="d-flex ml-auto" style="list-style: none;">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#" @click="showModal('about-modal')">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#" @click="showModal('add-project-modal')">Add Project</a>
-            </li>
-            <li class="nav-item">
-              <a class="js-scroll-trigger menu-btn btn-sm" href="#trial">Log Out</a>
-            </li>
-          </ul>
-        </div>
+        <ul class="d-flex ml-auto" style="list-style: none;">
+          <li class="nav-item">
+            <a class="nav-link" href="#" @click="showModal('about-modal')">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" @click="showModal('add-project-modal')">Add Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="menu-btn btn-sm" href="#" @click="showModal('user-auth-modal')">Log In</a>
+          </li>
+        </ul>
       </div>
     </nav>
     <section class="banner-block pb-0" id="banner">
@@ -36,21 +33,22 @@
     <about-modal />
     <!-- Add New Project Modal -->
     <add-project-modal />
+    <!-- Log in / Sign up Modal -->
+    <user-auth-modal />
   </header>
 </template>
 
 <script>
+import { modalMethods } from '@/mixins/modalMethods'
 import AboutModal from './AboutModal'
 import AddProjectModal from './AddProjectModal.vue'
+import UserAuthModal from './UserAuthModal.vue'
 export default {
+  mixins: [modalMethods],
   components: {
     AboutModal,
-    AddProjectModal
-  },
-  methods: {
-    showModal (modalName) {
-      this.$modal.show(modalName)
-    }
+    AddProjectModal,
+    UserAuthModal
   }
 }
 </script>

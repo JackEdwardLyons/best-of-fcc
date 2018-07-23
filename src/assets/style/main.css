@@ -545,9 +545,14 @@ footer p:last-child a {
 	border-radius: 50%;
 }
 
-.fa-thumbs-up:hover {
+.fa-thumbs-up:hover,
+.fixed-info-icon {
 	transition: .3s ease;
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.pos-rel {
+	position: relative;
 }
 
 .sm-60 {

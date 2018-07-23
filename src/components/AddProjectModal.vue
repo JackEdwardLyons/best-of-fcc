@@ -64,6 +64,11 @@
 import VoerroTagsInput from '@voerro/vue-tagsinput'
 
 export default {
+  data () {
+    return {
+      selectedTags: []
+    }
+  },
   components: {
     'tags-input': VoerroTagsInput
   }
