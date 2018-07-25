@@ -14,7 +14,7 @@
             <a class="text-primary" href="http://jacklyons.me" target="_blank">Jack Lyons</a></p>
         </div>
 
-        <FeedbackForm />
+        <!-- <FeedbackForm /> -->
     </footer>
 </template>
 

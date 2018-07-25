@@ -465,6 +465,9 @@ footer p:last-child a {
 		position: relative;
 		top: 10px;
 	}
+	.text-xs-center {
+		text-align: center !important;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -563,7 +566,7 @@ footer p:last-child a {
 	font-size: 50%;
 }
 
-.c-pointer {
+.clickable {
 	cursor: pointer;
 }
 

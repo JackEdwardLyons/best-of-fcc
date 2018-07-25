@@ -14,7 +14,7 @@
             </h6>
             <p class="card-text">
                 Some quick example text to build upon the title and give readers a better description.
-                It can only be 120 characters. After that there will be a read-more button. <b class="c-pointer">Show more</b>
+                It can only be 120 characters. After that there will be a read-more button. <b class="clickable">Show more</b>
             </p>
             <div class="item-meta d-flex justify-content-between">
                 <span class="item-meta__likes text-center">
