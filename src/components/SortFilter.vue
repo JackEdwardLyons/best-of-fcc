@@ -11,12 +11,15 @@
                         Category
                     </option>
                     <option value="1">
-                        Front End Only
+                        Front End
                     </option>
                     <option value="2">
-                        Full Stack
+                        Back End
                     </option>
                     <option value="3">
+                        Full Stack
+                    </option>
+                    <option value="4">
                         Data Vizualisation
                     </option>
                 </select>

@@ -55,7 +55,9 @@
                     </tags-input>
                 </div>
             </div>
-            <button type="submit" class="text-right btn btn-primary btm-sm">Submit Project</button>
+            <div class="form-row d-flex justify-content-center">
+                <button type="submit" class="text-center btn btn-primary btm-sm">Submit Project</button>
+            </div>
         </form>
     </modal>
 </template>
@@ -82,6 +84,9 @@ export default {
 }
 .project-tags-input {
     height: 100px;
+}
+.typeahead {
+    margin-top: 1em;
 }
 .typeahead > span {
     margin: .25em;

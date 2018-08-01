@@ -15,19 +15,33 @@
                     </button>
                 </div>
                 <div class="col-sm-12">
-                    <form class="loginForm" action="" autocomplete="off" method="POST">
+                    <form class="loginForm" action="" autocomplete="off" @submit.prevent="login">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="username" placeholder="Username">
+                            <input
+                                v-model="model.email"
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                placeholder="Email"
+                            >
                         </div>
                         <hr />
 
                         <div class="input-group">
-                            <input  type="password" class="form-control" name="password" placeholder="Password">
+                            <input
+                                v-model="model.password"
+                                type="password"
+                                class="form-control"
+                                name="password"
+                                placeholder="Password"
+                            >
                         </div>
                         <span class="tag tag-danger" v-if="errorMsg">{{ erorMsg }}</span>
                         <span class="tag tag-success" v-if="successMsg">{{ successMsg }}</span>
                         <hr />
-                        <button class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Login</button>
+                        <button class="btn btn-lg btn-outline-primary btn-block" type="submit">
+                            Login
+                        </button>
                     </form>
                 </div>
                 <div class="col-sm-12 mt-2">
@@ -43,7 +57,17 @@ export default {
   data () {
     return {
       successMsg: '',
-      errorMsg: ''
+      errorMsg: '',
+      model: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    login () {
+      this.$modal.hide('user-auth-modal')
+      console.log('email: ' + this.model.email + ' ,password: ' + this.model.password)
     }
   }
 }
