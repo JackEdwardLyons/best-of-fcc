@@ -13,7 +13,7 @@
             <a class="nav-link" href="#" @click="showModal('add-project-modal')">Add Project</a>
           </li>
           <li class="nav-item">
-            <a class="menu-btn btn-sm" href="#" @click="showModal('user-auth-modal')">Log In</a>
+            <a class="menu-btn btn-sm" href="#" @click="showModal('user-auth-modal')">Log In | Sign Up</a>
           </li>
         </ul>
       </div>
