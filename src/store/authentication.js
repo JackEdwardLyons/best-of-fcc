@@ -1,16 +1,20 @@
-export const authentication = {
-  state: { },
+export default {
+  state: {
+    user: null,
+    authToken: null
+  },
+  actions: {
+    setCurrentUser ({ commit }, userObj) {
+      commit('SET_CURRENT_USER', userObj)
+    }
+  },
   mutations: {
-    setUser (state, user) {
-      // state.user = user
-    },
-    logout (state) {
-      // state.user = null
+    SET_CURRENT_USER (state, userObj) {
+      state.user = userObj.user
+      state.authToken = userObj.authToken
     }
   },
   getters: {
-    username: state => {
-      // return state.user && state.user.username
-    }
+
   }
 }
