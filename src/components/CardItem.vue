@@ -19,7 +19,7 @@
             <div class="item-meta d-flex justify-content-between">
                 <span class="item-meta__likes text-center">
                     <span class="badge badge-info vote-count mr-1 mb-1-xs">43 Votes</span>
-                    <span class="vote-add">
+                    <span class="vote-add" v-if="userIsLoggedIn">
                         <i class="fa fa-thumbs-up fa-thumbs-up-xs"></i>
                     </span>
                 </span>
@@ -37,7 +37,11 @@
 
 <script>
 export default {
-
+  computed: {
+    userIsLoggedIn () {
+      return this.$store.getters['auth/user']
+    }
+  }
 }
 </script>
 

@@ -5,22 +5,18 @@
            :height="'auto'"
            :width="'50%'"
            :minWidth="300"
-           @closed="clearUserData">
+           @closed="clearAuthMessages">
         <div class="container auth-container">
             <h4 class="text-center login-heading">
-                Login or Sign up by clicking the Github icon
+                Login or Sign up <br />
+                <small>Open to developers only at this stage.</small>
             </h4>
+
             <div class="row">
                 <div class="col-sm-12">
                     <div class="loginForm">
                         <div class="input-group">
                             <div class="col-sm-12 text-center mb-4">
-                                <button class="btn login-btn"
-                                        title="Login with Gmail"
-                                        @click="loginWithGmail"
-                                >
-                                    <img width="40" src="../assets/img/google-icon.png" />
-                                </button>
                                 <button class="btn login-btn"
                                         title="Login with Github"
                                         @click="loginWithGithub"
@@ -34,7 +30,7 @@
                 <div class="col-sm-12 mt-2">
                     <p class="tag text-danger text-center" v-if="errorMsg">{{ errorMsg }}</p>
                     <p class="tag text-success text-center" v-if="successMsg">{{ successMsg }}</p>
-                    <p v-if="loading" class="text-center">Please wait ...</p>
+                    <p class="text-center" v-if="loading">Please wait while we fetch your Github credentials ...</p>
                 </div>
             </div>
         </div>
@@ -51,48 +47,43 @@ export default {
       userEmail: '',
       userPassword: '',
       errorMsg: '',
-      successMsg: '',
-      loading: false
+      successMsg: ''
+    }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters['auth/loading']
     }
   },
   methods: {
-    clearUserData () {
-      this.userName = ''
-      this.userEmail = ''
-      this.userPassword = ''
+    clearAuthMessages () {
       this.errorMsg = ''
       this.successMsg = ''
     },
     loginWithGithub () {
-      this.loading = true
+      this.$store.dispatch('auth/setLoadingToTrue')
       var provider = new firebase.auth.GithubAuthProvider()
-      firebase.auth().signInWithPopup(provider).then((result) => {
-        // This gives you a GitHub Access Token.
-        // Use it to access the GitHub API.
-        var authToken = result.credential.accessToken
-        var user = result.user
-        this.$store.dispatch('auth/setCurrentUser', { user, authToken })
-        return user
-      })
-        .then((user) => { 
-          this.loading = false
-          this.successMsg = 'Welcome aboard ' + user.displayName 
+
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          // GitHub Access Token can be used to access the GitHub API.
+          var authToken = result.credential.accessToken
+          var user = result.user
+          this.$store.dispatch('auth/setCurrentUser', { user, authToken })
+          return user
         })
-        .then(() => { setTimeout(() => this.$modal.hide('user-auth-modal'), 500) })
+        .then((user) => {
+          this.$store.dispatch('auth/setLoadingToFalse')
+          this.successMsg = 'Welcome aboard ' + user.displayName
+        })
+        .then(() => {
+          setTimeout(() => this.$modal.hide('user-auth-modal'), 500)
+        })
         .catch((error) => {
-        // Handle Errors here.
-          var errorCode = error.code
-          var errorMessage = error.message
-          // The email of the user's account used.
-          var email = error.email
-          // The firebase.auth.AuthCredential type that was used.
-          var credential = error.credential
-          console.log('error: ', email, credential, errorCode)
-          this.errorMsg = errorMessage
+          this.errorMsg = `${error.message} (Error Code: ${error.code} }.`
         })
-    },
-    loginWithGmail () {
-      console.log('gm login')
     }
   }
 }

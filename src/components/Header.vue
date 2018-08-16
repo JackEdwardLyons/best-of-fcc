@@ -7,13 +7,37 @@
         </a>
         <ul class="d-flex ml-auto" style="list-style: none;">
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="showModal('about-modal')">About</a>
+            <a class="nav-link"
+               href="#"
+               @click="showModal('about-modal')"
+            >
+              About
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" @click="showModal('add-project-modal')">Add Project</a>
+            <a class="nav-link"
+               href="#"
+               @click="showModal('add-project-modal')"
+               v-if="userIsLoggedIn"
+            >
+              Add Project
+            </a>
           </li>
           <li class="nav-item">
-            <a class="menu-btn btn-sm" href="#" @click="showModal('user-auth-modal')">Log In | Sign Up</a>
+            <a class="menu-btn btn-sm"
+               href="#"
+               @click="showModal('user-auth-modal')"
+               v-if="!user"
+            >
+              Log In | Sign Up
+            </a>
+            <a class="menu-btn btn-sm"
+               href="#"
+               @click="logoutUser"
+               v-else
+            >
+              Log out
+            </a>
           </li>
         </ul>
       </div>
@@ -43,12 +67,23 @@ import { modalMethods } from '@/mixins/modalMethods'
 import AboutModal from './AboutModal'
 import AddProjectModal from './AddProjectModal.vue'
 import UserAuthModal from './UserAuthModal.vue'
+
 export default {
   mixins: [modalMethods],
   components: {
     AboutModal,
     AddProjectModal,
     UserAuthModal
+  },
+  computed: {
+    userIsLoggedIn () {
+      return this.$store.getters['auth/user']
+    }
+  },
+  methods: {
+    logoutUser () {
+      this.$store.dispatch('auth/logoutUser')
+    }
   }
 }
 </script>
