@@ -1,3 +1,7 @@
+/** *
+ * Authentication Vuex Store
+ * Everything required to authenticate users with Github and Firebase
+ * **/
 import firebase from 'firebase'
 
 export default {
@@ -31,7 +35,7 @@ export default {
         .auth()
         .signOut()
         .then(() => commit('LOG_OUT_USER'))
-        .catch((error) => { console.log('error logging out: ', error) })
+        .catch((error) => commit('SET_ERROR_MSG', `${error.message} (Error Code: ${error.code} }.`))
     },
 
     loginWithGithub ({ dispatch, commit }) {

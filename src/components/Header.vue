@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { modalMethods } from '@/mixins/modalMethods'
+import modalMethods from '@/mixins/modalMethods'
 import AboutModal from './AboutModal'
 import AddProjectModal from './AddProjectModal.vue'
 import UserAuthModal from './UserAuthModal.vue'

@@ -1,4 +1,4 @@
-export const modalMethods = {
+export default {
   methods: {
     showModal (modalName) {
       this.$modal.show(modalName)

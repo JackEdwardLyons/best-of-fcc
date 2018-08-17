@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { modalMethods } from '@/mixins/modalMethods'
+import modalMethods from '@/mixins/modalMethods'
 import AboutModal from './AboutModal'
 export default {
   mixins: [modalMethods],
