@@ -27,7 +27,7 @@
             <a class="menu-btn btn-sm"
                href="#"
                @click="showModal('user-auth-modal')"
-               v-if="!user"
+               v-if="!userIsLoggedIn"
             >
               Log In | Sign Up
             </a>

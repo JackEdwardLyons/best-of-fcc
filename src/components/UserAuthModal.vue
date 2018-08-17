@@ -38,52 +38,41 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import { mapGetters } from 'vuex'
 
 export default {
   data () {
     return {
       userName: '',
       userEmail: '',
-      userPassword: '',
-      errorMsg: '',
-      successMsg: ''
+      userPassword: ''
     }
   },
   computed: {
-    loading () {
-      return this.$store.getters['auth/loading']
-    }
+    ...mapGetters('auth', [
+      'loading',
+      'successMsg',
+      'errorMsg'
+    ])
   },
   methods: {
     clearAuthMessages () {
-      this.errorMsg = ''
-      this.successMsg = ''
+      this.$store.dispatch('auth/clearAuthMessages')
     },
     loginWithGithub () {
       this.$store.dispatch('auth/setLoadingToTrue')
-      var provider = new firebase.auth.GithubAuthProvider()
-
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then((result) => {
-          // GitHub Access Token can be used to access the GitHub API.
-          var authToken = result.credential.accessToken
-          var user = result.user
-          this.$store.dispatch('auth/setCurrentUser', { user, authToken })
-          return user
-        })
-        .then((user) => {
-          this.$store.dispatch('auth/setLoadingToFalse')
-          this.successMsg = 'Welcome aboard ' + user.displayName
-        })
-        .then(() => {
-          setTimeout(() => this.$modal.hide('user-auth-modal'), 500)
-        })
-        .catch((error) => {
-          this.errorMsg = `${error.message} (Error Code: ${error.code} }.`
-        })
+      this.$store.dispatch('auth/loginWithGithub')
+    }
+  },
+  watch: {
+    // I am watching for when the user has successfully logged in
+    // then I will hide the auth modal, reason being,
+    // I don't know how to chain a .then() onto
+    // this.$store.dispatch('auth/loginWithGithub')
+    successMsg () {
+      if (this.successMsg) {
+        setTimeout(() => this.$modal.hide('user-auth-modal'), 500)
+      }
     }
   }
 }
