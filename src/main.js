@@ -14,6 +14,8 @@ Vue.use(vmodal, { dynamic: true })
 Vue.config.productionTip = false
 
 let app
+// This will make sure Firebase initializes before
+// loading the app when a user refreshes a page.
 fb.auth.onAuthStateChanged(user => {
   if (!app) {
     app = new Vue({

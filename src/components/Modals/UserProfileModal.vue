@@ -3,9 +3,9 @@
            :adaptive="true"
            :scrollable="true"
            :height="'auto'"
-           :width="'80%'"
+           :width="'60%'"
     >
-      <div class="container mt-4 mb-4">
+      <div class="container mt-4 mb-4" v-if="user">
         <img class="img-responsive avatar-img" :src="user.photoURL" />
         <h2 class="text-center mt-4 modal-heading--black">
           {{ user.displayName }}

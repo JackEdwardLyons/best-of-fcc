@@ -3,6 +3,7 @@
  * Everything required to authenticate users with Github and Firebase
  * **/
 import firebase from 'firebase'
+const FIREBASE_DB = require('../firebase-config.js')
 
 export default {
   state: {
@@ -40,6 +41,7 @@ export default {
 
     loginWithGithub ({ dispatch, commit }) {
       var provider = new firebase.auth.GithubAuthProvider()
+      // const FIREBASE_DB = firebase.database()
       firebase
         .auth()
         .signInWithPopup(provider)
@@ -48,6 +50,19 @@ export default {
           var authToken = result.credential.accessToken
           var user = result.user
           dispatch('setCurrentUser', { user, authToken })
+
+          console.log(user)
+          FIREBASE_DB.usersCollection.doc(user.uid)
+            .set({
+              name: user.displayName,
+              uid: user.uid,
+              email: user.email,
+              photoURL: user.photoURL
+            })
+            .then(() => console.log('signed in successfully'))
+            .catch((e) => console.log('error storing user to db: ', e))
+            // todo: set and get user from db for future :)
+
           return user
         })
         .then((user) => {
