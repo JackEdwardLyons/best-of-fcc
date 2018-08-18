@@ -39,6 +39,15 @@
               Log out
             </a>
           </li>
+          <li class="nav-item">
+            <a class="menu-btn btn-sm"
+              href="#"
+              @click="showModal('user-profile-modal')"
+              v-if="userIsLoggedIn"
+            >
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -52,28 +61,32 @@
         </div>
     </section>
     <!-- Curvy base of the page -->
-    <div class="effectiv"><img alt="" class="svg" src="../assets/img/bg.svg"></div>
+    <div class="effectiv"><img alt="" class="svg" src="../../assets/img/bg.svg"></div>
     <!-- About Modal -->
     <about-modal />
     <!-- Add New Project Modal -->
     <add-project-modal />
     <!-- Log in / Sign up Modal -->
     <user-auth-modal />
+    <!-- User Profile Modal -->
+    <user-profile-modal />
   </header>
 </template>
 
 <script>
 import modalMethods from '@/mixins/modalMethods'
-import AboutModal from './AboutModal'
-import AddProjectModal from './AddProjectModal.vue'
-import UserAuthModal from './UserAuthModal.vue'
+import AboutModal from '../Modals/AboutModal'
+import AddProjectModal from '../Modals/AddProjectModal.vue'
+import UserAuthModal from '../Modals/UserAuthModal.vue'
+import UserProfileModal from '../Modals/UserProfileModal.vue'
 
 export default {
   mixins: [modalMethods],
   components: {
     AboutModal,
     AddProjectModal,
-    UserAuthModal
+    UserAuthModal,
+    UserProfileModal
   },
   computed: {
     userIsLoggedIn () {

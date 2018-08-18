@@ -21,7 +21,7 @@
                                         title="Login with Github"
                                         @click="loginWithGithub"
                                 >
-                                    <img width="40" src="../assets/img/git-icon.png" />
+                                    <img width="40" src="../../assets/img/git-icon.png" />
                                 </button>
                             </div>
                         </div>

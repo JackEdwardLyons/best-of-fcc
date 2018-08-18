@@ -8,7 +8,7 @@
 
 <script>
 import modalMethods from '@/mixins/modalMethods'
-import AboutModal from './AboutModal'
+import AboutModal from './Modals/AboutModal'
 export default {
   mixins: [modalMethods],
   components: {

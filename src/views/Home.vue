@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
+import Header from '@/components/Partials/Header.vue'
 import MainCard from '@/components/MainCard.vue'
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/Partials/Footer.vue'
 
 export default {
   name: 'home',

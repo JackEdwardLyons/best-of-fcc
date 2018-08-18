@@ -10,6 +10,7 @@
 	-- Section
 	-- Badge
 	-- Button
+	-- Modals
 	-- Navbar
 	-- Banner
 	-- Footer
@@ -181,7 +182,13 @@ section {
 	text-decoration: none !important;
 }
 
-/* Particles */
+/* Modals */
+
+.modal-heading--black {
+	color: #000;
+}
+
+
 
 /* Navbar */
 
@@ -217,6 +224,7 @@ section {
 	border-radius: 100px;
 	box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
 	color: #3f345f;
+	cursor: pointer;
 	font-size: 13px;
 	font-stretch: normal;
 	font-style: normal;
@@ -336,7 +344,9 @@ section {
 /* Sidebar */
 
 /* Inner Nav/Header */
-
+.nav-item {
+	margin: 0 .5em;
+}
 /* Blog Page */
 
 /* Footer */
