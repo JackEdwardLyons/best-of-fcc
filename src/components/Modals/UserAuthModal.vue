@@ -68,7 +68,7 @@ export default {
     // I am watching for when the user has successfully logged in
     // then I will hide the auth modal, reason being,
     // I don't know how to chain a .then() onto
-    // this.$store.dispatch('auth/loginWithGithub')
+    // store.dispatch('auth/loginWithGithub')
     successMsg () {
       if (this.successMsg) {
         setTimeout(() => this.$modal.hide('user-auth-modal'), 500)

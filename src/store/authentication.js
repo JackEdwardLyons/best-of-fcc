@@ -7,7 +7,6 @@ const FIREBASE_DB = require('../firebase-config.js')
 
 export default {
   state: {
-    authToken: null,
     user: null,
     loading: false,
     successMsg: '',
@@ -23,12 +22,24 @@ export default {
       commit('SET_LOADING_TO_FALSE')
     },
 
-    setCurrentUser ({ state, commit }, userObj) {
+    clearAuthMessages ({ commit }) {
+      commit('CLEAR_AUTH_MESSAGES')
+    },
+
+    setCurrentUser ({ commit }, userObj) {
       commit('SET_CURRENT_USER', userObj)
     },
 
-    clearAuthMessages ({ commit }) {
-      commit('CLEAR_AUTH_MESSAGES')
+    fetchUserProfile ({ state, commit }) {
+      FIREBASE_DB.usersCollection
+        .doc(state.user.uid)
+        .get()
+        .then(res => {
+          console.log(res.data())
+          // commit('setUserProfile', res.data())
+        }).catch(err => {
+          console.log(err)
+        })
     },
 
     logoutUser ({ commit }) {
@@ -47,11 +58,11 @@ export default {
         .signInWithPopup(provider)
         .then((result) => {
           // GitHub Access Token can be used to access the GitHub API.
-          var authToken = result.credential.accessToken
+          // var authToken = result.credential.accessToken
           var user = result.user
-          dispatch('setCurrentUser', { user, authToken })
+          dispatch('setCurrentUser', { user })
+          dispatch('fetchUserProfile')
 
-          console.log(user)
           FIREBASE_DB.usersCollection.doc(user.uid)
             .set({
               name: user.displayName,
@@ -60,9 +71,7 @@ export default {
               photoURL: user.photoURL
             })
             .then(() => console.log('signed in successfully'))
-            .catch((e) => console.log('error storing user to db: ', e))
-            // todo: set and get user from db for future :)
-
+            .catch((e) => console.log('error storing user in db: ', e))
           return user
         })
         .then((user) => {
@@ -98,13 +107,15 @@ export default {
     },
 
     SET_CURRENT_USER (state, userObj) {
-      state.user = userObj.user
-      state.authToken = userObj.authToken
+      if (userObj.user) {
+        state.user = userObj.user
+      } else {
+        state.user = userObj
+      }
     },
 
     LOG_OUT_USER (state) {
       state.user = ''
-      state.authToken = ''
     }
   },
 
