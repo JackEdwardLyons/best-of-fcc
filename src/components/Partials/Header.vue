@@ -18,7 +18,7 @@
             <a class="nav-link"
                href="#"
                @click="showModal('add-project-modal')"
-               v-if="userIsLoggedIn"
+               v-if="loggedInUser"
             >
               Add Project
             </a>
@@ -27,7 +27,7 @@
             <a class="menu-btn btn-sm"
                href="#"
                @click="showModal('user-auth-modal')"
-               v-if="!userIsLoggedIn"
+               v-if="!loggedInUser"
             >
               Log In | Sign Up
             </a>
@@ -43,7 +43,7 @@
             <a class="menu-btn btn-sm"
               href="#"
               @click="showModal('user-profile-modal')"
-              v-if="userIsLoggedIn"
+              v-if="loggedInUser"
             >
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
@@ -89,7 +89,7 @@ export default {
     UserProfileModal
   },
   computed: {
-    userIsLoggedIn () {
+    loggedInUser () {
       return this.$store.getters['auth/user']
     }
   },

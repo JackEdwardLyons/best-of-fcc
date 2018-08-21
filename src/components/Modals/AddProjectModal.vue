@@ -1,5 +1,11 @@
 <template>
-    <modal name="add-project-modal" :adaptive="true" :scrollable="true" :height="'auto'" :width="'80%'">
+    <modal v-if="loggedInUser"
+           name="add-project-modal"
+           :adaptive="true"
+           :scrollable="true"
+           :height="'auto'"
+           :width="'80%'"
+    >
         <form class="modal-form">
             <h2 class="submit-project-title text-center">
                 Add Your Project Here
@@ -7,22 +13,50 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="projectTitle">Project Title</label>
-                    <input maxlength="30" type="text" class="form-control" id="projectTitle" placeholder="Project Title">
+                    <input maxlength="30"
+                           type="text"
+                           class="form-control"
+                           id="projectTitle"
+                           placeholder="Project Title"
+                           v-model="model.projectTitle"
+                    >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="projectShortDescription">Short Description</label>
-                    <input maxlength="80" type="text" class="form-control" id="projectShortDescription" placeholder="Short Description (max. 80 words)">
+                    <input maxlength="80"
+                           type="text"
+                           class="form-control"
+                           id="projectShortDescription"
+                           placeholder="Short Description (max. 80 words)"
+                           v-model="model.shortDescription"
+                    >
                 </div>
             </div>
             <div class="form-group">
                 <label for="projectLongDescription">Long Description</label>
-                <textarea maxlength="140" class="form-control" id="projectLongDescription" placeholder="Long Description (max. 140 words)"> </textarea>
+                <textarea maxlength="140"
+                          class="form-control"
+                          id="projectLongDescription"
+                          placeholder="Long Description (max. 140 words)"
+                          v-model="model.longDescription"
+                ></textarea>
+            </div>
+            <div class="form-group col-md-6 p-lr-0">
+                <label for="projectURL">Project URL</label>
+                <input type="text"
+                       class="form-control"
+                       id="projectURL"
+                       placeholder="Project URL goes here..."
+                       v-model="model.projectUrl"
+                >
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="projectCategory">Category</label>
-                    <select id="projectCategory" class="form-control">
-                        <option selected>Category</option>
+                    <select id="projectCategory"
+                            class="form-control"
+                            v-model="model.projectCategory"
+                    >
                         <option>Front End</option>
                         <option>Back End</option>
                         <option>Full Stack</option>
@@ -33,7 +67,7 @@
                     <label for="projectTags">Tags</label>
                     <tags-input
                         :limit="3"
-                        v-model="selectedTags"
+                        v-model="model.selectedTags"
                         class="project-tags-input"
                         element-id="projectTags"
                         :typeahead-activation-threshold="2"
@@ -56,7 +90,7 @@
                 </div>
             </div>
             <div class="form-row d-flex justify-content-center">
-                <button type="submit" class="text-center btn btn-primary btm-sm">Submit Project</button>
+                <button @click.prevent="addProject" type="submit" class="text-center btn btn-primary btm-sm">Submit Project</button>
             </div>
         </form>
     </modal>
@@ -66,13 +100,35 @@
 import VoerroTagsInput from '@voerro/vue-tagsinput'
 
 export default {
-  data () {
-    return {
-      selectedTags: []
-    }
-  },
   components: {
     'tags-input': VoerroTagsInput
+  },
+  data () {
+    return {
+      model: {
+        projectTitle: '',
+        shortDescription: '',
+        longDescription: '',
+        selectedTags: [],
+        projectCategory: '',
+        projectUrl: '',
+        dateAdded: (() => {
+          const d = new Date()
+          return d.getTime()
+        })()
+      }
+    }
+  },
+  methods: {
+    addProject () {
+      let newProject = Object.assign({}, this.model, { projectAuth: this.loggedInUser.displayName })
+      this.$store.dispatch('projects/addProject', newProject)
+    }
+  },
+  computed: {
+    loggedInUser () {
+      return this.$store.getters['auth/user']
+    }
   }
 }
 </script>
