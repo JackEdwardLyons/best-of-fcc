@@ -19,6 +19,7 @@
                            id="projectTitle"
                            placeholder="Project Title"
                            v-model="model.projectTitle"
+                           v-sanitaize
                     >
                 </div>
                 <div class="form-group col-md-6">
@@ -29,6 +30,7 @@
                            id="projectShortDescription"
                            placeholder="Short Description (max. 80 words)"
                            v-model="model.shortDescription"
+                           v-sanitaize
                     >
                 </div>
             </div>
@@ -39,6 +41,7 @@
                           id="projectLongDescription"
                           placeholder="Long Description (max. 140 words)"
                           v-model="model.longDescription"
+                          v-sanitaize
                 ></textarea>
             </div>
             <div class="form-group col-md-6 p-lr-0">
@@ -48,6 +51,7 @@
                        id="projectURL"
                        placeholder="Project URL goes here..."
                        v-model="model.projectUrl"
+                       v-sanitaize
                 >
             </div>
             <div class="form-row">
