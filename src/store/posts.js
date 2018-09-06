@@ -5,6 +5,9 @@ export default {
     projects: []
   },
   actions: {
+    setProjects ({ commit }, payload) {
+      commit('SET_PROJECTS', payload)
+    },
     addProject (state, payload) {
       FIREBASE_DB.projectsCollection
         .add({
@@ -19,9 +22,11 @@ export default {
     }
   },
   mutations: {
-
+    SET_PROJECTS (state, payload) {
+      state.projects = payload
+    }
   },
   getters: {
-    getProjects: (state) => { }
+    getProjects: (state) => { return state.projects }
   }
 }

@@ -27,6 +27,19 @@ fb.auth.onAuthStateChanged(user => {
   if (user) {
     console.log('already logged in', user)
     store.dispatch('auth/setCurrentUser', user)
+
+    // realtime updates from our posts (projects) collection
+    fb.projectsCollection.orderBy('dateAdded', 'desc').onSnapshot(querySnapshot => {
+      let projectsArray = []
+
+      querySnapshot.forEach(doc => {
+        let project = doc.data()
+        project.id = doc.id
+        projectsArray.push(project)
+      })
+      console.log(projectsArray)
+      store.dispatch('posts/setProjects', projectsArray)
+    })
   }
 
   if (!app) {

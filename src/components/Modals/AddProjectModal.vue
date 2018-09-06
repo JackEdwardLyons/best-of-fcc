@@ -1,6 +1,7 @@
 <template>
     <modal v-if="loggedInUser"
            name="add-project-modal"
+           @closed='resetFields'
            :adaptive="true"
            :scrollable="true"
            :height="'auto'"
@@ -20,6 +21,7 @@
                            placeholder="Project Title"
                            v-model="model.projectTitle"
                            v-sanitaize
+                           required
                     >
                 </div>
                 <div class="form-group col-md-6">
@@ -31,6 +33,7 @@
                            placeholder="Short Description (max. 80 words)"
                            v-model="model.shortDescription"
                            v-sanitaize
+                           required
                     >
                 </div>
             </div>
@@ -42,16 +45,18 @@
                           placeholder="Long Description (max. 140 words)"
                           v-model="model.longDescription"
                           v-sanitaize
+                          required
                 ></textarea>
             </div>
             <div class="form-group col-md-6 p-lr-0">
                 <label for="projectURL">Project URL</label>
-                <input type="text"
+                <input type="url"
                        class="form-control"
                        id="projectURL"
                        placeholder="Project URL goes here..."
                        v-model="model.projectUrl"
                        v-sanitaize
+                       required
                 >
             </div>
             <div class="form-row">
@@ -60,7 +65,10 @@
                     <select id="projectCategory"
                             class="form-control"
                             v-model="model.projectCategory"
+                            placeholder="Category"
+                            required
                     >
+                        <option value="" hidden selected disabled>Category</option>
                         <option>Front End</option>
                         <option>Back End</option>
                         <option>Full Stack</option>
@@ -70,6 +78,8 @@
                 <div class="form-group col-md-6">
                     <label for="projectTags">Tags</label>
                     <tags-input
+                        placeholder="Type &amp; press enter to add a tag."
+                        required
                         :limit="3"
                         v-model="model.selectedTags"
                         class="project-tags-input"
@@ -102,6 +112,7 @@
 
 <script>
 import VoerroTagsInput from '@voerro/vue-tagsinput'
+import Vue from 'vue'
 
 export default {
   components: {
@@ -109,6 +120,7 @@ export default {
   },
   data () {
     return {
+      formSubmitted: false,
       model: {
         projectTitle: '',
         shortDescription: '',
@@ -116,17 +128,34 @@ export default {
         selectedTags: [],
         projectCategory: '',
         projectUrl: '',
-        dateAdded: (() => {
-          const d = new Date()
-          return d.getTime()
-        })()
+        dateAdded: null
       }
     }
   },
   methods: {
     addProject () {
+      let currentDate = (() => {
+        const d = new Date()
+        return d.getTime()
+      })()
+
+      Vue.set(this.model, 'dateAdded', currentDate)
       let newProject = Object.assign({}, this.model, { projectAuth: this.loggedInUser.displayName })
-      this.$store.dispatch('projects/addProject', newProject)
+      this.$store.dispatch('posts/addProject', newProject)
+      this.formSubmitted = true
+      this.$modal.hide('add-project-modal')
+    },
+    resetFields () {
+      this.formSubmitted = false
+      this.model = {
+        projectTitle: '',
+        shortDescription: '',
+        longDescription: '',
+        selectedTags: [],
+        projectCategory: '',
+        projectUrl: '',
+        dateAdded: null
+      }
     }
   },
   computed: {
