@@ -10,7 +10,10 @@
                                 <sort-filter></sort-filter>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <card-item></card-item>
+                                <card-item v-for="project in projects"
+                                           :key="project.id"
+                                           :project="project">
+                                </card-item>
                             </ul>
                         </div>
                     </div>
@@ -28,6 +31,11 @@ export default {
   components: {
     CardItem,
     SortFilter
+  },
+  computed: {
+    projects () {
+      return this.$store.getters['posts/getProjects']
+    }
   }
 }
 </script>

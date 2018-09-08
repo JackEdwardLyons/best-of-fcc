@@ -3,22 +3,22 @@
         <div class="card-body">
             <a href="https://codepen.io/JackEdwardLyons/pen/bEpPqB" target="_blank">
                 <h4 class="card-title">
-                    Full Stack Twitter Clone
+                    {{ project.projectTitle }}
                     <small class="author sm-60">
-                        posted by Jack Lyons
+                        posted by {{ project.projectAuth }}
                     </small>
                 </h4>
             </a>
             <h6 class="card-subtitle mb-2 text-muted">
-                This is a meta description of max 80 characters. This is as long as it can get.
+              {{ project.shortDescription }}
             </h6>
             <p class="card-text">
-                Some quick example text to build upon the title and give readers a better description.
-                It can only be 120 characters. After that there will be a read-more button. <b class="clickable">Show more</b>
+                {{ project.longDescription }}
+                <b class="clickable">Show more</b>
             </p>
             <div class="item-meta d-flex justify-content-between">
                 <span class="item-meta__likes text-center">
-                    <span class="badge badge-info vote-count mr-1 mb-1-xs">43 Votes</span>
+                    <span class="badge badge-info vote-count mr-1 mb-1-xs">{{ project.likes }} Votes</span>
                     <span class="vote-add" v-if="userIsLoggedIn">
                         <i class="fa fa-thumbs-up fa-thumbs-up-xs"></i>
                     </span>
@@ -26,9 +26,14 @@
                 <div class="item-meta__tags-list ml-1-xs">
                     <p>
                         <b>Tags: &nbsp;</b>
-                        <a href="#" class="card-link">JavaScript, React, Node, Bootstrap</a>
+                        <a href="#" class="card-link font-xs-60 ml-2 badge badge-primary mt-1-xs"
+                           v-for="tag in project.selectedTags"
+                           :key="tag"
+                        >
+                            {{ tag }}
+                        </a>
                     </p>
-                    <span class="font-xs-60 ml-2 badge badge-danger mt-1-xs pull-right">Full Stack</span>
+                    <span class="font-xs-60 ml-2 badge badge-danger mt-1-xs pull-right">{{ project.projectCategory }}</span>
                 </div>
             </div>
         </div>
@@ -37,6 +42,7 @@
 
 <script>
 export default {
+  props: ['project'],
   computed: {
     userIsLoggedIn () {
       return this.$store.getters['auth/user']
