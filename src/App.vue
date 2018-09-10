@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- Currently there aren't any routes, just the one page -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 

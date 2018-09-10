@@ -2,9 +2,9 @@
     <li class="list-group-item">
         <div class="card-body">
             <a href="https://codepen.io/JackEdwardLyons/pen/bEpPqB" target="_blank">
-                <h4 class="card-title">
+                <h4 class="card-title" data-test__project-title>
                     {{ project.projectTitle }}
-                    <small class="author sm-60">
+                    <small class="author sm-60" data-test__project-auth>
                         posted by {{ project.projectAuth }}
                     </small>
                 </h4>
