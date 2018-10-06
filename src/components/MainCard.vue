@@ -9,7 +9,10 @@
                                 <h6 class="text-white">Filter Results</h6>
                                 <sort-filter></sort-filter>
                             </div>
-                            <ul class="list-group list-group-flush">
+                            <div v-if='loading' class="loading-placeholder">
+                                <code-loader></code-loader>
+                            </div>
+                            <ul class="list-group list-group-flush" v-else>
                                 <card-item v-for="project in projects"
                                            :key="project.id"
                                            :project="project">
@@ -26,16 +29,37 @@
 <script>
 import CardItem from './CardItem.vue'
 import SortFilter from './SortFilter.vue'
+import { CodeLoader } from 'vue-content-loader'
 
 export default {
   components: {
     CardItem,
-    SortFilter
+    SortFilter,
+    CodeLoader
+  },
+  data () {
+    return {
+      loading: true
+    }
   },
   computed: {
     projects () {
       return this.$store.getters['posts/getProjects']
     }
+  },
+  watch: {
+    projects () {
+      if (this.projects && this.projects.length > 0) {
+        this.loading = false
+      }
+    }
   }
 }
 </script>
+
+<style scoped>
+.loading-placeholder {
+    margin: 2em 0 0 2em;
+    height: 200px;
+}
+</style>

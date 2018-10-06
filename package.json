@@ -13,6 +13,7 @@
     "@voerro/vue-tagsinput": "^1.8.0",
     "firebase": "^5.3.1",
     "vue": "^2.5.16",
+    "vue-content-loader": "^0.2.1",
     "vue-js-modal": "^1.3.16",
     "vue-router": "^3.0.1",
     "vue-sanitize-html-plugin": "^1.0.1",

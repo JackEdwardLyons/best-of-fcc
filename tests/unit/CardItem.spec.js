@@ -18,7 +18,7 @@ describe('CardItem.vue', () => {
         }
       }
     })
-    expect(CARD_ITEM.find('[data-test__project-title]').text()).toContain('Testing Vue App') 
+    expect(CARD_ITEM.find('[data-test__project-title]').text()).toContain('Testing Vue App')
     expect(CARD_ITEM.find('[data-test__project-auth]').text()).toBe('posted by Jack')
   })
 })
