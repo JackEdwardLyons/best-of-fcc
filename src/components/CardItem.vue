@@ -17,7 +17,7 @@
                 <span class="item-meta__likes text-center">
                     <span class="badge badge-info vote-count mr-1 mb-1-xs">{{ project.likes }} Votes</span>
                     <span class="vote-add" v-if="userIsLoggedIn">
-                        <i class="fa fa-thumbs-up fa-thumbs-up-xs"></i>
+                        <i @click="likeProject(project.id, project.likes)" class="fa fa-thumbs-up fa-thumbs-up-xs"></i>
                     </span>
                     <span class="vote-add text-danger" v-else>
                         Please log in to vote.
@@ -45,6 +45,11 @@ export default {
   computed: {
     userIsLoggedIn () {
       return this.$store.getters['auth/user']
+    }
+  },
+  methods: {
+    likeProject (projectId, projectLikes) {
+      this.$store.dispatch('posts/likeProject', { projectId, projectLikes })
     }
   }
 }

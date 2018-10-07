@@ -19,6 +19,23 @@ export default {
     },
     likeProject (state, payload) {
       // when the user clicks the vote thumbs up...
+      const loggedInUserUID = state.rootState.auth.user.uid
+      let docId = `${loggedInUserUID}_${payload.projectId}`
+
+      FIREBASE_DB.likesCollection.doc(docId).get().then(doc => {
+        if (doc.exists) {
+          return
+        }
+        FIREBASE_DB.likesCollection.doc(docId).set({
+          projectId: payload.projectId,
+          userId: loggedInUserUID
+        }).then(() => {
+          // update post likes
+          FIREBASE_DB.projectsCollection.doc(payload.projectId).update({
+            likes: payload.projectLikes + 1
+          })
+        })
+      }).catch(err => { console.log(err) })
     }
   },
   mutations: {
