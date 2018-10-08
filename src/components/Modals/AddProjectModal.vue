@@ -12,7 +12,7 @@
                 Add Your Project Here
             </h2>
             <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                     <label for="projectTitle">Project Title</label>
                     <input maxlength="30"
                            type="text"
@@ -24,22 +24,11 @@
                            required
                     >
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="projectShortDescription">Short Description</label>
-                    <input maxlength="80"
-                           type="text"
-                           class="form-control"
-                           id="projectShortDescription"
-                           placeholder="Short Description (max. 80 words)"
-                           v-model="model.shortDescription"
-                           v-sanitaize
-                           required
-                    >
-                </div>
             </div>
             <div class="form-group">
                 <label for="projectLongDescription">Long Description</label>
                 <textarea maxlength="140"
+                          rows="3"
                           class="form-control"
                           id="projectLongDescription"
                           placeholder="Long Description (max. 140 words)"

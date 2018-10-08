@@ -7,7 +7,7 @@
             <div class="col-sm-3 col-md-2 my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>
+                    <option selected disabled="disabled">
                         Category
                     </option>
                     <option value="1">
@@ -27,7 +27,7 @@
             <div class="col-sm-2 col-md-2 my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>
+                    <option selected disabled="disabled">
                         Tags
                     </option>
                     <option value="1">
@@ -68,7 +68,7 @@
             <div class="col-sm-2 col-md-2 my-1 mb-4">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
                 <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected>
+                    <option selected disabled="disabled">
                         Votes
                     </option>
                     <option value="1">
