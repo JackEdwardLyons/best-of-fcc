@@ -34,12 +34,8 @@ export default {
       FIREBASE_DB.usersCollection
         .doc(state.user.uid)
         .get()
-        .then(res => {
-          console.log(res.data())
-          // commit('setUserProfile', res.data())
-        }).catch(err => {
-          console.log(err)
-        })
+        .then(res => { console.log(res.data()) })
+        .catch(err => { console.log(err) })
     },
 
     logoutUser ({ commit }) {

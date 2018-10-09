@@ -175,6 +175,11 @@ section {
 	padding: 11px 25px;
 }
 
+.btn-xs {
+	font-size: 12px;
+	padding: 8px 16px;
+}
+
 .custom-card {
 	background-color: #ffffff;
 	overflow: hidden;
@@ -193,8 +198,6 @@ section {
 .modal-heading--black {
 	color: #000;
 }
-
-
 
 /* Navbar */
 

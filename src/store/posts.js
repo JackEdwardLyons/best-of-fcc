@@ -5,7 +5,8 @@ export default {
     projects: []
   },
   actions: {
-    setProjects ({ commit }, payload) {
+    setProjects ({ commit, rootState }, payload) {
+      rootState.filters.allProjects = payload
       commit('SET_PROJECTS', payload)
     },
     addProject (state, payload) {
@@ -14,7 +15,7 @@ export default {
           ...payload,
           likes: 0
         })
-        .then(ref => { console.log(ref) }) // this.post.content = '' })
+        .then(ref => { console.log(ref) })
         .catch(err => { console.log(err) })
     },
     likeProject ({ state, rootState, commit }, payload) {

@@ -4,6 +4,7 @@
             <span :class="categoryBgClass(project.projectCategory)" class="font-xs-60 ml-2 badge mt-1-xs pull-right">{{ project.projectCategory }}</span>
             <a href="https://codepen.io/JackEdwardLyons/pen/bEpPqB" target="_blank">
                 <h4 class="card-title" data-test__project-title>
+                <i class="fa fa-link" aria-hidden="true"></i>
                     {{ project.projectTitle }}
                     <small class="author sm-60" data-test__project-auth>
                         posted by {{ project.projectAuth }}
@@ -48,6 +49,9 @@ export default {
     }
   },
   methods: {
+    likeProject (projectId, projectLikes) {
+      this.$store.dispatch('posts/likeProject', { projectId, projectLikes })
+    },
     categoryBgClass (projectCategory) {
       return {
         'Front End': 'badge-primary',
@@ -59,3 +63,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.card-body .fa-link {
+    font-size: 70%;
+    bottom: 2px;
+    position: relative;
+}
+
+@media screen and (max-width: 700px) {
+    .card-title .author {
+        display: block;
+    }
+}
+</style>

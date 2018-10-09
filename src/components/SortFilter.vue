@@ -6,20 +6,20 @@
             </div>
             <div class="col-sm-3 col-md-2 my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected disabled="disabled">
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-model="model.projectCategory">
+                    <option value="Category" selected disabled="disabled">
                         Category
                     </option>
-                    <option value="1">
+                    <option value="Front End">
                         Front End
                     </option>
-                    <option value="2">
+                    <option value="Back End">
                         Back End
                     </option>
-                    <option value="3">
+                    <option value="Full Stack">
                         Full Stack
                     </option>
-                    <option value="4">
+                    <option value="Data Visualization">
                         Data Vizualisation
                     </option>
                 </select>
@@ -86,7 +86,12 @@
                 </select>
             </div>
             <div class="col-sm-2 col-md-2">
-                <button class="btn btn-success btn-sm" type="submit">Filter</button>
+                <button class="btn btn-success btn-xs mt-1" @click.prevent="onFilterSubmit" title="Filter">
+                    <i class="fas fa-filter"></i>
+                </button>
+                <button class="btn btn-info btn-xs mt-1 ml-3" @click.prevent="resetFilters" title="Reset Filters">
+                    <i class="fas fa-redo-alt"></i>
+                </button>
             </div>
         </div>
     </form>
@@ -94,10 +99,20 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      model: {
+        projectCategory: 'Category'
+      }
+    }
+  },
+  methods: {
+    onFilterSubmit () {
+      this.$store.dispatch('filters/onFilterSubmit', this.model)
+    },
+    resetFilters () {
+      this.$store.dispatch('filters/resetFilters')
+    }
+  }
 }
 </script>
-
-<style>
-
-</style>

@@ -25,7 +25,6 @@ let app
 // loading the app when a user refreshes a page.
 fb.auth.onAuthStateChanged(user => {
   if (user) {
-    console.log('already logged in', user)
     store.dispatch('auth/setCurrentUser', user)
   }
 
