@@ -1,0 +1,32 @@
+{
+  "indexes": [
+    {
+      "collectionId": "posts",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "projectCategory",
+          "mode": "ASCENDING"
+        },
+        {
+          "fieldPath": "likes",
+          "mode": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionId": "posts",
+      "state": "READY",
+      "fields": [
+        {
+          "fieldPath": "selectedTags",
+          "mode": "ARRAY_CONTAINS"
+        },
+        {
+          "fieldPath": "likes",
+          "mode": "ASCENDING"
+        }
+      ]
+    }
+  ]
+}

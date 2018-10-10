@@ -12,7 +12,10 @@
                             <div v-if='loading' class="loading-placeholder">
                                 <code-loader></code-loader>
                             </div>
-                            <ul class="list-group list-group-flush" v-else>
+                            <div v-if='!loading && projects.length === 0' class="pt-4 pb-4">
+                                <h3 class="text-center text-black">There are no results to display</h3>
+                            </div>
+                            <ul class="list-group list-group-flush" v-if="!loading && projects.length > 0">
                                 <card-item v-for="project in projects"
                                            :key="project.id"
                                            :project="project">

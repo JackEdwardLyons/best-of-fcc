@@ -1,13 +1,10 @@
 <template>
-    <form class="container d-flex">
+    <form class="container d-flex justify-content-center">
         <div class="form-row row justify-content-center">
-            <div class="col-sm-2 col-md-2 my-1">
-                <input type="text" class="form-control" id="title" placeholder="Title">
-            </div>
-            <div class="col-sm-3 col-md-2 my-1">
+            <div class="col-sm-3 col-md-3 my-1">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-model="model.projectCategory">
-                    <option value="Category" selected disabled="disabled">
+                <select title="Project Category" class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-model="model.projectCategory">
+                    <option value="category" selected disabled="disabled">
                         Category
                     </option>
                     <option value="Front End">
@@ -24,68 +21,59 @@
                     </option>
                 </select>
             </div>
-            <div class="col-sm-2 col-md-2 my-1">
-                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected disabled="disabled">
+            <div class="col-sm-3 col-md-3 my-1">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Tags</label>
+                <select title="Project Tags" class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-model="model.tags">
+                    <option selected disabled="disabled" value="tags">
                         Tags
                     </option>
-                    <option value="1">
-                        HTML + CSS
-                    </option>
-                    <option value="2">
+                    <option value="javascript">
                         JavaScript
                     </option>
-                    <option value="3">
+                    <option value="php">
                         PHP
                     </option>
-                    <option value="4">
+                    <option value="python">
                         Python
                     </option>
-                    <option value="5">
-                        .NET
-                    </option>
-                    <option value="6">
+                    <option value="jquery">
                         jQuery
                     </option>
-                    <option value="7">
-                        Ruby on Rails
-                    </option>
-                    <option value="8">
+                    <option value="react">
                         React
                     </option>
-                    <option value="9">
+                    <option value="nativescript">
                         NativeScript
                     </option>
-                    <option value="10">
+                    <option value="vue">
                         Vue
                     </option>
-                    <option value="10">
+                    <option value="angular">
                         Angular
                     </option>
                 </select>
             </div>
             <div class="col-sm-2 col-md-2 my-1 mb-4">
                 <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                    <option selected disabled="disabled">
-                        Votes
+                <select title="Project Votes" class="custom-select mr-sm-2" id="inlineFormCustomSelect" v-model="model.likes">
+                    <option value="0" selected>
+                        0
                     </option>
-                    <option value="1">
+                    <option value="50">
                         50+
                     </option>
-                    <option value="2">
+                    <option value="100">
                         100+
                     </option>
-                    <option value="3">
+                    <option value="200">
                         200+
                     </option>
-                    <option value="4">
+                    <option value="500">
                         500+
                     </option>
                 </select>
             </div>
-            <div class="col-sm-2 col-md-2">
+            <div class="col-sm-2 col-md-3">
                 <button class="btn btn-success btn-xs mt-1" @click.prevent="onFilterSubmit" title="Filter">
                     <i class="fas fa-filter"></i>
                 </button>
@@ -102,7 +90,9 @@ export default {
   data () {
     return {
       model: {
-        projectCategory: 'Category'
+        projectCategory: 'category',
+        likes: 0,
+        tags: 'tags'
       }
     }
   },

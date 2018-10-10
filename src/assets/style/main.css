@@ -175,7 +175,7 @@ section {
 	padding: 11px 25px;
 }
 
-.btn-xs {
+.btn.btn-xs {
 	font-size: 12px;
 	padding: 8px 16px;
 }
@@ -195,7 +195,8 @@ section {
 
 /* Modals */
 
-.modal-heading--black {
+.modal-heading--black,
+.text-black {
 	color: #000;
 }
 

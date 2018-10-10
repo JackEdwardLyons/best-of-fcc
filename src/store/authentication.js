@@ -2,7 +2,10 @@
  * Authentication Vuex Store
  * Everything required to authenticate users with Github and Firebase
  * **/
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/database'
+import 'firebase/firestore'
 const FIREBASE_DB = require('../firebase-config.js')
 
 export default {

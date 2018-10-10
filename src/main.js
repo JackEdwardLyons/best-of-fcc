@@ -4,11 +4,13 @@ import router from './router'
 import store from './store'
 import vmodal from 'vue-js-modal'
 import VueSanitizeHtml from 'vue-sanitize-html-plugin'
+import dotenv from 'dotenv'
 
 import './assets/style/bootstrap.min.css'
 import './assets/style/fontawesome-all.css'
 import './assets/style/main.css'
 
+dotenv.config()
 const fb = require('./firebase-config.js')
 
 Vue.use(vmodal, { dynamic: true })

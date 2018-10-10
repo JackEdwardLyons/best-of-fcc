@@ -78,16 +78,15 @@
                         :existing-tags="{
                             'php': 'PHP',
                             'vue': 'Vue.js',
-                            'jQuery': 'jQuery',
-                            'react': 'React.js',
-                            'laravel': 'Laravel',
-                            'MongoDB': 'Mongo DB',
+                            'jQuery': 'jquery',
+                            'react': 'react',
+                            'MongoDB': 'mongodb',
                             'firebase': 'Firebase',
-                            'angularjs': 'Angular.js',
-                            'angular2x': 'Angular 2x',
-                            'javascript': 'JavaScript',
-                            'react-native': 'React Native',
-                            'nativescript': 'NativeScript'
+                            'angularjs': 'angularjs',
+                            'angular2x': 'angular2x',
+                            'javascript': 'javascript',
+                            'react-native': 'react native',
+                            'nativescript': 'nativescript'
                         }">
                     </tags-input>
                 </div>
