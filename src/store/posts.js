@@ -15,8 +15,7 @@ export default {
           ...payload,
           likes: 0
         })
-        .then(ref => { console.log(ref) })
-        .catch(err => { console.log(err) })
+        .catch(err => { alert(err) })
     },
     likeProject ({ state, rootState, commit }, payload) {
       // when the user clicks the vote thumbs up...
@@ -37,7 +36,7 @@ export default {
             likes: payload.projectLikes + 1
           })
         })
-      }).catch(err => { console.log(err) })
+      }).catch(err => { alert(err) })
     }
   },
   mutations: {

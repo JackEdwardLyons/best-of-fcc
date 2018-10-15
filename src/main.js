@@ -39,7 +39,7 @@ fb.auth.onAuthStateChanged(user => {
       project.id = doc.id
       projectsArray.push(project)
     })
-    console.log(projectsArray)
+
     store.dispatch('posts/setProjects', projectsArray)
   })
 

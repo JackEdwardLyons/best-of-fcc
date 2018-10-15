@@ -21,12 +21,6 @@ export default {
         query = query.where('selectedTags', 'array-contains', payload.tags)
       }
 
-      // if (Number(payload.likes) >= 0) {
-      //   query = query.where('likes', '>=', Number(payload.likes))
-      // }
-
-      console.log(payload.likes, payload.tags, payload.projectCategory)
-
       query
         .get()
         .then(querySnapshot => {

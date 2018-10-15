@@ -37,8 +37,7 @@ export default {
       FIREBASE_DB.usersCollection
         .doc(state.user.uid)
         .get()
-        .then(res => { console.log(res.data()) })
-        .catch(err => { console.log(err) })
+        .catch(err => { alert(err) })
     },
 
     logoutUser ({ commit }) {
@@ -69,8 +68,7 @@ export default {
               email: user.email,
               photoURL: user.photoURL
             })
-            .then(() => console.log('signed in successfully'))
-            .catch((e) => console.log('error storing user in db: ', e))
+            .catch((e) => alert('error storing user in db: ', e))
           return user
         })
         .then((user) => {
