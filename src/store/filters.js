@@ -1,5 +1,11 @@
 const FIREBASE_DB = require('../firebase-config.js')
 
+// Firebase Parameters to Filter
+// -----------------------------
+// selectedTags      {Array}
+// projectCategory   {String}
+// votes             {Number}
+
 export default {
   state: {
     projects: [],
@@ -17,9 +23,14 @@ export default {
       //   query = query.where('projectCategory', '==', payload.projectCategory)
       // }
 
-      if (payload.tags !== 'tags') {
+      console.log(payload.likes)
+      if (payload.likes > 0) {
         query = query.where('selectedTags', 'array-contains', payload.tags)
       }
+
+      // if (payload.tags !== 'tags') {
+      //   query = query.where('selectedTags', 'array-contains', payload.tags)
+      // }
 
       query
         .get()
@@ -34,7 +45,5 @@ export default {
     SET_FILTERS (state, payload) {
       state.projects = payload
     }
-  },
-  getters: {
   }
 }
