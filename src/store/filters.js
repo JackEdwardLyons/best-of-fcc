@@ -4,7 +4,8 @@ const FIREBASE_DB = require('../firebase-config.js')
 // -----------------------------
 // selectedTags      {Array}
 // projectCategory   {String}
-// votes             {Number}
+// likes             {Number}
+// dateAdded         {Date}
 
 export default {
   state: {
@@ -17,20 +18,24 @@ export default {
     },
     onFilterSubmit ({ state, rootState, commit }, payload) {
       var query = FIREBASE_DB.projectsCollection
+      var searchByRank = payload.rank === 'popular' || payload.rank === 'newest'
 
-      // todo: This needs refactoring to remove duplication
-      // if (payload.projectCategory !== 'category') {
-      //   query = query.where('projectCategory', '==', payload.projectCategory)
-      // }
-
-      console.log(payload.likes)
-      if (payload.likes > 0) {
-        query = query.where('selectedTags', 'array-contains', payload.tags)
+      // todo: Handling of this needs some more work...
+      if (payload.projectCategory !== 'category' && !searchByRank) {
+        query = query.where('projectCategory', '==', payload.projectCategory)
       }
 
-      // if (payload.tags !== 'tags') {
-      //   query = query.where('selectedTags', 'array-contains', payload.tags)
-      // }
+      if (payload.tag !== 'tag' && !searchByRank) {
+        query = query.where('selectedTags', 'array-contains', payload.tag)
+      }
+
+      if (payload.rank === 'popular') {
+        query = query.orderBy('likes', 'desc')
+      }
+
+      if (payload.rank === 'newest') {
+        query = query.orderBy('dateAdded', 'desc')
+      }
 
       query
         .get()

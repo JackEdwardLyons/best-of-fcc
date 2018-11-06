@@ -26,19 +26,22 @@
                     </select>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-3 my-1">
-                    <label class="mr-sm-2" for="select-tags">By Tag</label>
-                    <select title="Project Tags" class="custom-select mr-sm-2" id="select-tags" v-model="model.tags">
-                        <option selected disabled="disabled" value="tags">
+                    <label class="mr-sm-2" for="select-tag">By Tag</label>
+                    <select title="Project Tags" class="custom-select mr-sm-2" id="select-tag" v-model="model.tag">
+                        <option selected disabled="disabled" value="tag">
                         All Tags
+                        </option>
+                        <option value="bootstrap">
+                            Bootstrap
                         </option>
                         <option value="javascript">
                             JavaScript
                         </option>
-                        <option value="php">
-                            PHP
+                        <option value="node">
+                            Node JS
                         </option>
-                        <option value="python">
-                            Python
+                        <option value="firebase">
+                            Firebase
                         </option>
                         <option value="jquery">
                             jQuery
@@ -92,8 +95,8 @@ export default {
       model: {
         projectCategory: 'category',
         likes: 0,
-        tags: 'tags',
-        rank: 'newest'
+        tag: 'tag',
+        rank: 'rank'
       }
     }
   },
@@ -106,8 +109,8 @@ export default {
       this.model = {
         projectCategory: 'category',
         likes: 0,
-        tags: 'tags',
-        rank: 'newest'
+        tag: 'tag',
+        rank: 'rank'
       }
     }
   }

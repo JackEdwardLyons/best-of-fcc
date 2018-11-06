@@ -584,6 +584,7 @@ footer p:last-child a {
 .fixed-info-icon {
 	transition: .3s ease;
 	box-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	background: #e0dcdc;
 }
 
 .pos-rel {

@@ -27,12 +27,12 @@
                 <div class="item-meta__tags-list ml-1-xs">
                     <p>
                         <b>Tags: &nbsp;</b>
-                        <a href="#" class="card-link font-xs-60 ml-2 badge badge-info mt-1-xs"
+                        <span class="card-link font-xs-60 ml-2 item-meta__tags-list__badge badge badge-info mt-1-xs"
                            v-for="tag in project.selectedTags"
                            :key="tag"
                         >
                             {{ tag }}
-                        </a>
+                        </span>
                     </p>
                 </div>
             </div>
