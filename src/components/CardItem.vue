@@ -76,6 +76,12 @@ export default {
     position: relative;
 }
 
+.card-text, 
+p, 
+b {
+    color: #00313a;
+}
+
 @media screen and (max-width: 700px) {
     .card-title .author {
         display: block;
