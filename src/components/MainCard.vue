@@ -6,7 +6,6 @@
                     <div class="project-item text-center">
                         <div class="custom-card card card-outline-primary h-100">
                             <div class="card-body bg-primary">
-                                <h6 class="text-white">Filter Results</h6>
                                 <sort-filter></sort-filter>
                             </div>
                             <div v-if='loading' class="loading-placeholder">
