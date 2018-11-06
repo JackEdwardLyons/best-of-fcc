@@ -6,11 +6,10 @@
            :width="'60%'"
     >
       <div class="container mt-4 mb-4" v-if="user">
-        <img class="img-responsive avatar-img" :src="user.photoURL" />
+        <img class="img-responsive avatar-img" :src="user.photoURL" alt="Your Github avatar" />
         <h2 class="text-center mt-4 modal-heading--black">
           {{ user.displayName }}
         </h2>
-        <p class="text-center">This is where your profile information will be stored.</p>
         <button class="btn-info text-center logout-btn" @click="logoutUser">
           Log out
         </button>

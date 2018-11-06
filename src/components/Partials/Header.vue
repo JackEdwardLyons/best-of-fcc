@@ -2,51 +2,46 @@
   <header>
     <nav class="navbar fcc-navbar navbar-expand-lg navbar-dark" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <img width="200" src="https://d33wubrfki0l68.cloudfront.net/4caa71c705cde0b749c14919b776d3aeb86701dd/458cf/img/freecodecamp.svg" />
+        <a class="navbar-brand js-scroll-trigger" href="/">
+            <img alt="FreeCodeCamp logo" width="200" src="https://d33wubrfki0l68.cloudfront.net/4caa71c705cde0b749c14919b776d3aeb86701dd/458cf/img/freecodecamp.svg" />
         </a>
         <ul class="d-flex ml-auto" style="list-style: none;">
           <li class="nav-item">
-            <a class="nav-link"
-               href="#"
+            <span class="nav-link"
                @click="showModal('about-modal')"
             >
               About
-            </a>
+            </span>
           </li>
           <li class="nav-item">
-            <a class="nav-link"
-               href="#"
+            <span class="nav-link"
                @click="showModal('add-project-modal')"
                v-if="loggedInUser"
             >
               Add Project
-            </a>
+            </span>
           </li>
           <li class="nav-item">
-            <a class="menu-btn btn-sm"
-               href="#"
+            <span class="menu-btn btn-sm"
                @click="showModal('user-auth-modal')"
                v-if="!loggedInUser"
             >
               Log In | Sign Up
-            </a>
-            <a class="menu-btn btn-sm"
-               href="#"
+            </span>
+            <span class="menu-btn btn-sm"
                @click="logoutUser"
                v-else
             >
               Log out
-            </a>
+            </span>
           </li>
           <li class="nav-item">
-            <a class="menu-btn btn-sm"
-              href="#"
+            <span class="menu-btn btn-sm"
               @click="showModal('user-profile-modal')"
               v-if="loggedInUser"
             >
               <i class="fa fa-user" aria-hidden="true"></i>
-            </a>
+            </span>
           </li>
         </ul>
       </div>
@@ -61,7 +56,7 @@
         </div>
     </section>
     <!-- Curvy base of the page -->
-    <div class="effectiv"><img alt="" class="svg" src="../../assets/img/bg.svg"></div>
+    <div class="effectiv"><img alt="green background svg" class="svg" src="../../assets/img/bg.svg"></div>
     <!-- About Modal -->
     <about-modal />
     <!-- Add New Project Modal -->
