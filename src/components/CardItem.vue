@@ -12,7 +12,8 @@
                 </h4>
             </a>
             <p class="card-text">
-                {{ project.longDescription }}
+                {{ project.longDescription }} <br>
+                <strong>Posted on {{ setLocalDateFormat(project.dateAdded) }}.</strong>
             </p>
             <div class="item-meta d-flex justify-content-between">
                 <span class="item-meta__likes text-center">
@@ -59,6 +60,10 @@ export default {
         'Full Stack': 'badge-danger',
         'Data Visualization': 'badge-success'
       }[projectCategory]
+    },
+    setLocalDateFormat (date) {
+      let formattedDate = new Date(date)
+      return formattedDate.toLocaleDateString('en-GB')
     }
   }
 }
