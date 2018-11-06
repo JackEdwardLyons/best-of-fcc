@@ -2,7 +2,7 @@
     <li class="list-group-item">
         <article class="card-body">
             <span :class="categoryBgClass(project.projectCategory)" class="font-xs-60 ml-2 badge mt-1-xs pull-right">{{ project.projectCategory }}</span>
-            <a href="https://codepen.io/JackEdwardLyons/pen/bEpPqB" target="_blank">
+            <a :href="project.projectUrl" target="_blank">
                 <h4 class="card-title" data-test__project-title>
                 <i class="fa fa-link" aria-hidden="true"></i>
                     {{ project.projectTitle }}

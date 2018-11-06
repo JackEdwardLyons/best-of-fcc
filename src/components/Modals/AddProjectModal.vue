@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="projectLongDescription">Long Description</label>
-                <textarea maxlength="140"
+                <textarea maxlength="200"
                           rows="3"
                           class="form-control"
                           id="projectLongDescription"
